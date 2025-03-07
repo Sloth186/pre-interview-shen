@@ -3,7 +3,7 @@ DIR=$@
 resultre="(unknown|sat|unsat)"
 queryre="driver::filename = queries\/([a-zA-Z0-9_\/\.-]+)"
 benchmarkre="global::totalTime = ([0-9]+)ms"
-printf "QueryName,Result,ElapsedTime\n" &> data.txt
+printf "QueryName,Result,ElapsedTime\n" &> data.csv
 for file in "$DIR"/*
 do
     printf "$(basename $file)\n"
@@ -34,5 +34,5 @@ do
             fi
         fi
     done <<< "$(cat output.txt)"
-    printf "$query,$result,$benchmark" &>> data.txt
+    printf "$query,$result,$benchmark" &>> data.csv
 done
