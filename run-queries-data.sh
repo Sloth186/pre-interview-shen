@@ -10,7 +10,7 @@ do
     result="null"
     query="null"
     benchmark="null"
-    (./cvc5 $file --tlimit-per=1000 --stats) &> output.txt
+    (./cvc5 $file --tlimit-per=60000 --stats) &> output.txt
     while read line
     do
         if [[ $line =~ $resultre ]]; then
